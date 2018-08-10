@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 
 // Render into subtree is necessary for parent contexts to transfer over
@@ -51,7 +52,7 @@ export default class ModalPortal extends React.Component {
     };
 
     // A similar API to react-transition-group
-    if (typeof this._component.componentWillLeave == 'function') {
+    if (this._component && typeof this._component.componentWillLeave == 'function') {
       // Pass the callback to be called on completion
       this._component.componentWillLeave(done);
     } else {
